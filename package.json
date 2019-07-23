@@ -1,0 +1,74 @@
+{
+    "name": "daniel-san-starter-kit",
+    "author": "jared boice",
+    "description": "budget-projection rule template for cashflow event triggers, using the daniel-san budget projection engine",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jaredboice/daniel-san-starter-kit.git"
+    },
+    "bugs": {
+        "url": "https://github.com/jaredboice/daniel-san-starter-kit.git"
+    },
+    "homepage": "https://github.com/jaredboice/daniel-san-starter-kit.git",
+    "keywords": [
+        "budget",
+        "projection",
+        "forecast",
+        "predicting",
+        "planning",
+        "finance",
+        "financial",
+        "accounting",
+        "home economics",
+        "future",
+        "balance",
+        "daniel san",
+        "daniel-san",
+        "starter-kit",
+        "starter kit"
+    ],
+    "main": "index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "clean": "rm -rf build",
+        "lint": "eslint '**/*.{js,jsx}' --quiet",
+        "build-js": "babel src -d build",
+        "build": "npm run clean && npm run build-js",
+        "copy-packagejs-for-publish": "yes | cp -rf ./package.json ./build/package.json",
+        "copy-readme-for-publish": "yes | cp -rf ./README.md ./build/README.md",
+        "copy-readme-npm-for-publish": "yes | cp -rf ./README-npm.md ./build/README.md",
+        "copy-npm-ignore-for-publish": "yes | cp -rf ./.npmignore ./build/.npmignore",
+        "wrap": "npm run build && npm-run-all -p copy-packagejs-for-publish copy-readme-npm-for-publish copy-npm-ignore-for-publish",
+        "test": "NODE_PATH=src jest --verbose --ci",
+        "test:w": "NODE_PATH=src jest --verbose --watchAll",
+        "test:c": "NODE_PATH=src jest --verbose --coverage"
+    },
+    "dependencies": {
+        "@babel/runtime": "~7.4.5",
+        "daniel-san": "~1.9.4",
+        "dotenv": "^8.0.0",
+        "moment": "~2.23.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "~7.4.4",
+        "@babel/core": "~7.4.5",
+        "@babel/plugin-transform-runtime": "~7.4.4",
+        "@babel/preset-env": "~7.4.5",
+        "eslint": "~4.19.1",
+        "eslint-config-airbnb": "~16.1.0",
+        "eslint-plugin-import": "~2.11.0",
+        "eslint-plugin-jsx-a11y": "~6.0.3",
+        "eslint-plugin-react": "~7.7.0",
+        "jest": "~22.4.3",
+        "nodemon": "~1.19.1"
+    },
+    "jest": {
+        "verbose": true,
+        "collectCoverageFrom": [
+            "src/**/*.js"
+        ],
+        "testURL": "http://localhost/"
+    }
+}
