@@ -11,7 +11,7 @@ const {
     SATURDAY,
     STANDARD_TERMINAL_OUTPUT,
     CONCISE
-} = require('daniel-san/constants');
+} = require('daniel-san/constants'); // see the readme for more constants
 
 const WEEKENDS = [SATURDAY, SUNDAY];
 /* BANK_HOLIDAYS

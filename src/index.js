@@ -14,11 +14,14 @@ case 'production':
 case 'dev':
 case 'development':
 case 'test':
+case 'local':
     waxOn = require('./waxOnTest'); // eslint-disable-line global-require
     break;
 default:
     break;
 }
+
+console.log(`>>> environment: ${ENV}`); // eslint-disable-line no-console
 
 const operationResult = findBalance(waxOn.danielSan);
 if (operationResult.err) {
@@ -30,3 +33,5 @@ if (operationResult.err) {
         terminal({ danielSan: operationResult.danielSan, terminalOptions: waxOn.terminalOptions });
     }
 }
+
+console.log(`>>> environment: ${ENV}`); // eslint-disable-line no-console
