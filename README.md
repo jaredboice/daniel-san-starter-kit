@@ -3,14 +3,16 @@ budget-projection rule template for cashflow event triggers, using the daniel-sa
 
 get the [full documentation](https://github.com/jaredboice/daniel-san) at gitHub.
 
+![Daniel-San](screenshots/daniel-san-starter-kit-logo.png 'Daniel-San')
+
 ## Donations - Bitcoin: 19XgiRojJnv9VDhyW9HmF6oKQeVc7k9McU 
 (use this address until 2022)
 
-## waxOn
-waxOn.js is where you will define your rule sets for triggering accounting events.
+## Wax On
+waxOn.js is the template file where you define your rule sets for triggering accounting events.
 
 ## Environment Variables
-Notice in index.js that an environment variable is being used to switch between different rule set files. Edit this behavior according to your budget testing needs
+Notice in index.js that an environment variable is being used to switch between different rule set files (waxOn.js and waxOnTest.js). Edit this behavior and these files/names according to your preference and budget testing needs
 
 **execution script**
 ```javascript
