@@ -5,7 +5,7 @@ budget-projection rule template for cashflow event triggers, using the daniel-sa
 (use this address until 2022)
 
 ## Environment Variables
-notice in index.js that an environment variable is being used to switch between different accounts
+notice in index.js that an environment variable is being used to switch between different accounts 
 change this according to your budget testing needs
 
 **execution script**
