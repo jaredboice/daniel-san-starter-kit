@@ -1,7 +1,7 @@
 {
     "name": "daniel-san-starter-kit",
     "author": "jared boice",
-    "description": "budget-projection rule template for cashflow event triggers, using the daniel-san budget projection engine",
+    "description": "a budget-projection rule template for cashflow event triggers that utilizes the daniel-san budget-projection engine with terminal output",
     "version": "1.0.0",
     "license": "MIT",
     "repository": {
