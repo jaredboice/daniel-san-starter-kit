@@ -12,6 +12,7 @@ case 'production':
     waxOn = require('./waxOn'); // eslint-disable-line global-require
     break;
 case 'dev':
+case 'develop':
 case 'development':
 case 'test':
 case 'local':
