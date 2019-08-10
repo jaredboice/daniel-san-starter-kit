@@ -404,6 +404,16 @@ const annualBills = [
     {
         type: STANDARD_EVENT,
         frequency: ANNUALLY,
+        name: 'Vehicle Registration',
+        amount: -55.0,
+        dateStart: '2019-07-20',
+        dateEnd: null,
+        processDate: '09-01',
+        sortPriority: 10
+    },
+    {
+        type: STANDARD_EVENT,
+        frequency: ANNUALLY,
         name: 'New Years Blast',
         amount: -50.0,
         dateStart: '2019-07-20',
