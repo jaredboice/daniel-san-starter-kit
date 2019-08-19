@@ -42,8 +42,35 @@ const BANK_HOLIDAYS = [
     '2019-11-28',
     '2019-12-24',
     '2019-12-25',
-    '2019-12-31'
-]; // bank holidays will need to be added for each projected year, in this case they only extend to the end of 2019
+    '2019-12-31',
+    '2020-01-01',
+    '2020-01-20',
+    '2020-02-17',
+    '2020-04-12',
+    '2020-05-25',
+    '2020-07-04',
+    '2020-09-07',
+    '2020-10-12',
+    '2020-11-11',
+    '2020-11-26',
+    '2020-12-24',
+    '2020-12-25',
+    '2020-12-31',
+    '2021-01-01',
+    '2021-01-18',
+    '2021-02-15',
+    '2021-04-04',
+    '2021-05-31',
+    '2021-07-04',
+    '2021-09-06',
+    '2021-10-11',
+    '2021-11-11',
+    '2021-11-25',
+    '2021-12-24',
+    '2021-12-25',
+    '2021-12-31'
+
+]; // bank holidays will need to be added for each projected year, in this case they extend to the end of 2021
 
 const CORPORATE_HOLIDAYS = [
     '2019-01-01',
@@ -59,7 +86,7 @@ const CORPORATE_HOLIDAYS = [
     '2020-12-24',
     '2020-12-25',
     '2021-01-01'
-]; // corporate holidays will need to be added for each projected year
+]; // corporate holidays will need to be added for each projected year, in this case they extend to the end of 2021
 
 const danielSan = {
     beginBalance: 2500.0, // see the readme for multi-currency options
