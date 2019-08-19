@@ -246,9 +246,8 @@ const monthlyEssentials = [
         frequency: WEEKLY,
         name: 'gas',
         amount: -30.0,
-        syncDate: '2019-07-20', // specify a date to sync this trigger with a particular SUNDAY in the past
-        dateStart: '2019-07-20', // using a syncDate WITH a dateStart set in the future will replace syncDate and synchronize the modulus/cycle phase
-        // with that start date in the future, and once that dateStart property falls in the past, it will then become the past syncDate
+        syncDate: '2019-07-20', // specify a date to sync the modulus/cycle phase for this trigger with a particular SUNDAY in the past
+        // (or a particular SUNDAY in the future, but it will still only cycle moving forward from that point)
         dateEnd: null,
         processDate: SUNDAY,
         modulus: 3, // fill up the tank every 3rd SUNDAY (this user must live close to work)
@@ -260,7 +259,6 @@ const monthlyEssentials = [
         name: 'oil change',
         amount: -35.0,
         syncDate: '2019-07-20',
-        dateStart: '2019-07-20',
         dateEnd: null,
         processDate: '15',
         modulus: 3, // every third MONTHLY trigger
@@ -385,7 +383,6 @@ const biweeklyChecks = [
         name: 'paycheck',
         amount: 1671.25,
         syncDate: '2019-07-20',
-        dateStart: '2019-07-20',
         dateEnd: null,
         processDate: FRIDAY,
         sortPriority: 50,
