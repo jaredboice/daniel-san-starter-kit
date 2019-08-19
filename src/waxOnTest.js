@@ -1,7 +1,7 @@
 const {
     STANDARD_EVENT,
-    MOVE_THIS_PROCESS_DATE_BEFORE_THESE_DATES,
-    ADJUST_AMOUNT_ON_THESE_DATES,
+    PRE_PAY,
+    ADJUST_AMOUNT,
     ANNUALLY,
     MONTHLY,
     WEEKLY,
@@ -9,11 +9,11 @@ const {
     SUNDAY,
     FRIDAY,
     SATURDAY,
+    WEEKENDS,
     STANDARD_TERMINAL_OUTPUT,
     CONCISE
 } = require('daniel-san/constants'); // see the readme for more constants
 
-const WEEKENDS = [SATURDAY, SUNDAY];
 /* BANK_HOLIDAYS
     New Year's Day
     Martin Luther King Day
@@ -82,14 +82,14 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'rent',
         amount: -1200.0,
-        dateStart: '2019-07-20',
+        dateStart: '2019-07-20', // if there is no rule-level start date, daniel-san will number crunch to determine the next process date
         dateEnd: null, // an endDate of null signifies an ongoing accounting event
         processDate: '01', // the 1st of each frequency, in this case it will be the 1st of every month
         sortPriority: 10, // the lower the number the higher the sort priority (for identical processDates)
         specialAdjustments: [
             // this special adjustment will trigger the event prior to these dates/days, which is something banks typically do for automated withdrawals
             {
-                type: MOVE_THIS_PROCESS_DATE_BEFORE_THESE_DATES,
+                type: PRE_PAY,
                 dates: [...BANK_HOLIDAYS],
                 weekdays: [...WEEKENDS]
             }
@@ -106,7 +106,7 @@ const monthlyEssentials = [
         sortPriority: 20,
         specialAdjustments: [
             {
-                type: MOVE_THIS_PROCESS_DATE_BEFORE_THESE_DATES,
+                type: PRE_PAY,
                 dates: [...BANK_HOLIDAYS],
                 weekdays: [...WEEKENDS]
             }
@@ -121,11 +121,9 @@ const monthlyEssentials = [
         dateEnd: null,
         processDate: '15',
         sortPriority: 20,
-        modulus: 1,
-        cycle: 1,
         specialAdjustments: [
             {
-                type: MOVE_THIS_PROCESS_DATE_BEFORE_THESE_DATES,
+                type: PRE_PAY,
                 dates: [...BANK_HOLIDAYS],
                 weekdays: [...WEEKENDS]
             }
@@ -142,7 +140,7 @@ const monthlyEssentials = [
         sortPriority: 20,
         specialAdjustments: [
             {
-                type: MOVE_THIS_PROCESS_DATE_BEFORE_THESE_DATES,
+                type: PRE_PAY,
                 dates: [...BANK_HOLIDAYS],
                 weekdays: [...WEEKENDS]
             }
@@ -159,7 +157,7 @@ const monthlyEssentials = [
         sortPriority: 20,
         specialAdjustments: [
             {
-                type: MOVE_THIS_PROCESS_DATE_BEFORE_THESE_DATES,
+                type: PRE_PAY,
                 dates: [...BANK_HOLIDAYS],
                 weekdays: [...WEEKENDS]
             }
@@ -196,7 +194,7 @@ const monthlyEssentials = [
         sortPriority: 20,
         specialAdjustments: [
             {
-                type: MOVE_THIS_PROCESS_DATE_BEFORE_THESE_DATES,
+                type: PRE_PAY,
                 dates: [...BANK_HOLIDAYS],
                 weekdays: [...WEEKENDS]
             }
@@ -213,12 +211,12 @@ const monthlyEssentials = [
         sortPriority: 20,
         specialAdjustments: [
             {
-                type: ADJUST_AMOUNT_ON_THESE_DATES, // we just got the bill and expect to be paying $49 less on the process date
+                type: ADJUST_AMOUNT, // we just got the bill and expect to be paying $49 less on the process date
                 dates: ['2019-07-17'],
                 amounts: [49.0] // dates and amounts are parallel arrays
             },
             {
-                type: MOVE_THIS_PROCESS_DATE_BEFORE_THESE_DATES, // the moving of process dates should generally come last in the array of adjustments
+                type: PRE_PAY, // the moving of process dates should generally come last in the array of adjustments
                 dates: [...BANK_HOLIDAYS],
                 weekdays: [...WEEKENDS]
             }
@@ -235,7 +233,7 @@ const monthlyEssentials = [
         sortPriority: 20,
         specialAdjustments: [
             {
-                type: MOVE_THIS_PROCESS_DATE_BEFORE_THESE_DATES,
+                type: PRE_PAY,
                 dates: [...BANK_HOLIDAYS],
                 weekdays: [...WEEKENDS]
             }
@@ -246,7 +244,7 @@ const monthlyEssentials = [
         frequency: WEEKLY,
         name: 'gas',
         amount: -30.0,
-        syncDate: '2019-07-20', // specify a date to sync the modulus/cycle phase for this trigger with a particular SUNDAY in the past
+        dateStart: '2019-07-20', // specify a date to sync the modulus/cycle phase for this trigger with a particular SUNDAY in the past
         // (or a particular SUNDAY in the future, but it will still only cycle moving forward from that point)
         dateEnd: null,
         processDate: SUNDAY,
@@ -258,7 +256,7 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'oil change',
         amount: -35.0,
-        syncDate: '2019-07-20',
+        dateStart: '2019-07-20',
         dateEnd: null,
         processDate: '15',
         modulus: 3, // every third MONTHLY trigger
@@ -276,11 +274,9 @@ const monthlyEntertainment = [
         dateEnd: null,
         processDate: '24',
         sortPriority: 80,
-        modulus: 1,
-        cycle: 1,
         specialAdjustments: [
             {
-                type: MOVE_THIS_PROCESS_DATE_BEFORE_THESE_DATES,
+                type: PRE_PAY,
                 dates: [...BANK_HOLIDAYS],
                 weekdays: [...WEEKENDS]
             }
@@ -297,7 +293,7 @@ const monthlyEntertainment = [
         sortPriority: 80,
         specialAdjustments: [
             {
-                type: MOVE_THIS_PROCESS_DATE_BEFORE_THESE_DATES,
+                type: PRE_PAY,
                 dates: [...BANK_HOLIDAYS],
                 weekdays: [...WEEKENDS]
             }
@@ -311,8 +307,7 @@ const weeklyEssentials = [
         frequency: WEEKLY,
         name: 'dry cleaning',
         amount: -16.0,
-        syncDate: null,
-        dateStart: null, // if there is no rule-level start date, daniel-san will number crunch to determine the next process date
+        dateStart: '2019-07-20', // specify a dateStart to sync the modulus/cycle phase with
         dateEnd: null,
         processDate: FRIDAY,
         sortPriority: 80,
@@ -324,13 +319,10 @@ const weeklyEssentials = [
         frequency: WEEKLY,
         name: 'groceries',
         amount: -125.0,
-        syncDate: null,
         dateStart: null,
         dateEnd: null,
         processDate: SUNDAY,
-        sortPriority: 80,
-        modulus: 1, // every SUNDAY
-        cycle: 1
+        sortPriority: 80
     }
 ];
 
@@ -340,39 +332,31 @@ const weeklyEntertainment = [
         frequency: WEEKLY,
         name: 'friday entertainment',
         amount: -50.0,
-        syncDate: null,
         dateStart: null,
         dateEnd: null,
         processDate: FRIDAY,
-        sortPriority: 200, // low priority gets sorted last for an identical processDate
-        modulus: 1, // this allows us to opt out of friday night entertainment when we see putting us over the edge
-        cycle: 1
+        sortPriority: 200 // low priority gets sorted last for an identical processDate
+        // this allows us to opt out of friday night entertainment when we see that expense putting us over the edge
     },
     {
         type: STANDARD_EVENT,
         frequency: WEEKLY,
         name: 'saturday entertainment',
         amount: -50.0,
-        syncDate: null,
         dateStart: null,
         dateEnd: null,
         processDate: SATURDAY,
-        sortPriority: 200,
-        modulus: 1,
-        cycle: 1
+        sortPriority: 200
     },
     {
         type: STANDARD_EVENT,
         frequency: WEEKLY,
         name: 'sunday entertainment',
         amount: -25.0,
-        syncDate: null,
         dateStart: null,
         dateEnd: null,
         processDate: SUNDAY,
-        sortPriority: 200,
-        modulus: 1,
-        cycle: 1
+        sortPriority: 200
     }
 ];
 
@@ -382,7 +366,7 @@ const biweeklyChecks = [
         frequency: WEEKLY,
         name: 'paycheck',
         amount: 1671.25,
-        syncDate: '2019-07-20',
+        dateStart: '2019-07-20',
         dateEnd: null,
         processDate: FRIDAY,
         sortPriority: 50,
@@ -390,7 +374,7 @@ const biweeklyChecks = [
         cycle: 2,
         specialAdjustments: [
             {
-                type: MOVE_THIS_PROCESS_DATE_BEFORE_THESE_DATES,
+                type: PRE_PAY,
                 dates: [...BANK_HOLIDAYS],
                 weekdays: [...WEEKENDS]
             }
@@ -432,11 +416,9 @@ const weekDayBills = [
         sortPriority: 80,
         exclusions: {
             // exclude these dates/days
-            weekdays: [SATURDAY, SUNDAY],
+            weekdays: [...WEEKENDS],
             dates: [...CORPORATE_HOLIDAYS]
-        },
-        modulus: 1,
-        cycle: 1
+        }
     }
 ];
 
