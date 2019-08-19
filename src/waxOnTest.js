@@ -69,7 +69,6 @@ const BANK_HOLIDAYS = [
     '2021-12-24',
     '2021-12-25',
     '2021-12-31'
-
 ]; // bank holidays will need to be added for each projected year, in this case they extend to the end of 2021
 
 const CORPORATE_HOLIDAYS = [
