@@ -246,8 +246,9 @@ const monthlyEssentials = [
         frequency: WEEKLY,
         name: 'gas',
         amount: -30.0,
-        syncDate: '2019-07-20', // specify a date to sync this trigger with a particular SUNDAY in the past or future
-        dateStart: '2019-07-20',
+        syncDate: '2019-07-20', // specify a date to sync this trigger with a particular SUNDAY in the past
+        dateStart: '2019-07-20', // using a syncDate WITH a dateStart set in the future will replace syncDate and synchronize the modulus/cycle phase
+        // with that start date in the future, and once that dateStart property falls in the past, it will then become the past syncDate
         dateEnd: null,
         processDate: SUNDAY,
         modulus: 3, // fill up the tank every 3rd SUNDAY (this user must live close to work)
