@@ -31,7 +31,7 @@ if (operationResult.err) {
 } else {
     // eslint-disable-next-line no-lonely-if
     if (waxOn.terminalOptions) {
-        terminal({ danielSan: operationResult.danielSan, terminalOptions: waxOn.terminalOptions });
+        terminal({ danielSan: operationResult.danielSan, terminalOptions: waxOn.terminalOptions, originalDanielSan: waxOn.danielSan });
     }
 }
 
