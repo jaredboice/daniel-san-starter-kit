@@ -24,7 +24,9 @@ default:
 
 console.log(`>>> environment: ${ENV}`); // eslint-disable-line no-console
 
+console.time('process time'); // eslint-disable-line no-console
 const operationResult = findBalance(waxOn.danielSan);
+console.timeEnd('process time'); // eslint-disable-line no-console
 if (operationResult.err) {
     const error = errorDisc(operationResult);
     if (waxOn.terminalOptions) terminal({ error });
