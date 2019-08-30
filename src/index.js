@@ -22,11 +22,11 @@ default:
     break;
 }
 
+console.time('processing + output time'); // eslint-disable-line no-console
 console.log(`>>> environment: ${ENV}`); // eslint-disable-line no-console
-
-console.time('process time'); // eslint-disable-line no-console
+console.time('processing time'); // eslint-disable-line no-console
 const operationResult = findBalance(waxOn.danielSan);
-console.timeEnd('process time'); // eslint-disable-line no-console
+console.timeEnd('processing time'); // eslint-disable-line no-console
 if (operationResult.err) {
     const error = errorDisc(operationResult);
     if (waxOn.terminalOptions) terminal({ error });
@@ -36,5 +36,5 @@ if (operationResult.err) {
         terminal({ danielSan: operationResult.danielSan, terminalOptions: waxOn.terminalOptions, originalDanielSan: waxOn.danielSan });
     }
 }
-
+console.timeEnd('processing + output time'); // eslint-disable-line no-console
 console.log(`>>> environment: ${ENV}`); // eslint-disable-line no-console
