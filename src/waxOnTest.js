@@ -90,8 +90,8 @@ const CORPORATE_HOLIDAYS = [
 const danielSan = {
     beginBalance: 2500.0, // see the readme for multi-currency options
     endBalance: null,
-    dateStart: '2019-07-20',
-    dateEnd: '2021-09-11',
+    effectiveDateStart: '2019-07-20',
+    effectiveDateEnd: '2021-09-11',
     rules: [], // the rules defined below will be assigned to this array, prior to export, at the bottom of the file
     events: [] // future balance projections stored here
 };
@@ -108,8 +108,8 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'rent',
         amount: -1200.0,
-        dateStart: '2019-07-20', // if there is no rule-level start date, daniel-san will number crunch to determine the next process date
-        dateEnd: null, // an endDate of null signifies an ongoing accounting event
+        effectiveDateStart: '2019-07-20', // if there is no rule-level start date, daniel-san will number crunch to determine the next process date
+        effectiveDateEnd: null, // an endDate of null signifies an ongoing accounting event
         processDate: '01', // the 1st of each frequency, in this case it will be the 1st of every month
         sortPriority: 10, // the lower the number the higher the sort priority (for identical processDates)
         specialAdjustments: [
@@ -126,8 +126,8 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'student loan',
         amount: -150.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '01',
         sortPriority: 20,
         specialAdjustments: [
@@ -143,8 +143,8 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'credit card',
         amount: -100.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '15',
         sortPriority: 20,
         specialAdjustments: [
@@ -160,8 +160,8 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'car payment',
         amount: -250.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '02',
         sortPriority: 20,
         specialAdjustments: [
@@ -177,8 +177,8 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'internet',
         amount: -85.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '02',
         sortPriority: 20,
         specialAdjustments: [
@@ -194,8 +194,8 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'health insurance',
         amount: -180.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '20',
         sortPriority: 30
     },
@@ -204,8 +204,8 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'car insurance',
         amount: -100.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '13',
         sortPriority: 30
     },
@@ -214,8 +214,8 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'phone bill',
         amount: -85.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '28',
         sortPriority: 20,
         specialAdjustments: [
@@ -231,8 +231,8 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'electric',
         amount: -125.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '17',
         sortPriority: 20,
         specialAdjustments: [
@@ -253,8 +253,8 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'water',
         amount: -20.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '01',
         sortPriority: 20,
         specialAdjustments: [
@@ -270,9 +270,9 @@ const monthlyEssentials = [
         frequency: WEEKLY,
         name: 'gas',
         amount: -30.0,
-        dateStart: '2019-07-20', // specify a date to sync the modulus/cycle phase for this trigger with a particular SUNDAY in the past
+        effectiveDateStart: '2019-07-20', // specify a date to sync the modulus/cycle phase for this trigger with a particular SUNDAY in the past
         // (or a particular SUNDAY in the future, but it will still only cycle moving forward from that point)
-        dateEnd: null,
+        effectiveDateEnd: null,
         processDate: SUNDAY,
         modulus: 3, // fill up the tank every 3rd SUNDAY (this user must live close to work)
         cycle: 1 // the operation gets triggered when cycle reaches the modulus TODO: ?
@@ -282,8 +282,8 @@ const monthlyEssentials = [
         frequency: MONTHLY,
         name: 'oil change',
         amount: -35.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '15',
         modulus: 3, // every third MONTHLY trigger
         cycle: 1
@@ -296,8 +296,8 @@ const monthlyEntertainment = [
         frequency: MONTHLY,
         name: 'streaming service',
         amount: -15.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '24',
         sortPriority: 80,
         specialAdjustments: [
@@ -313,8 +313,8 @@ const monthlyEntertainment = [
         frequency: MONTHLY,
         name: 'gaming subscription',
         amount: -10.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '07',
         sortPriority: 80,
         specialAdjustments: [
@@ -333,8 +333,8 @@ const weeklyEssentials = [
         frequency: WEEKLY,
         name: 'dry cleaning',
         amount: -16.0,
-        dateStart: '2019-07-20', // specify a dateStart to sync the modulus/cycle phase with
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20', // specify a effectiveDateStart to sync the modulus/cycle phase with
+        effectiveDateEnd: null,
         processDate: FRIDAY,
         sortPriority: 80,
         modulus: 2, // every 2nd FRIDAY
@@ -345,8 +345,8 @@ const weeklyEssentials = [
         frequency: WEEKLY,
         name: 'groceries',
         amount: -125.0,
-        dateStart: null,
-        dateEnd: null,
+        effectiveDateStart: null,
+        effectiveDateEnd: null,
         processDate: SUNDAY,
         sortPriority: 80
     }
@@ -358,8 +358,8 @@ const weeklyEntertainment = [
         frequency: WEEKLY,
         name: 'friday entertainment',
         amount: -50.0,
-        dateStart: null,
-        dateEnd: null,
+        effectiveDateStart: null,
+        effectiveDateEnd: null,
         processDate: FRIDAY,
         sortPriority: 200 // low priority gets sorted last for an identical processDate
         // this allows us to opt out of friday night entertainment when we see that expense putting us over the edge
@@ -369,8 +369,8 @@ const weeklyEntertainment = [
         frequency: WEEKLY,
         name: 'saturday entertainment',
         amount: -50.0,
-        dateStart: null,
-        dateEnd: null,
+        effectiveDateStart: null,
+        effectiveDateEnd: null,
         processDate: SATURDAY,
         sortPriority: 200
     },
@@ -379,8 +379,8 @@ const weeklyEntertainment = [
         frequency: WEEKLY,
         name: 'sunday entertainment',
         amount: -25.0,
-        dateStart: null,
-        dateEnd: null,
+        effectiveDateStart: null,
+        effectiveDateEnd: null,
         processDate: SUNDAY,
         sortPriority: 200
     }
@@ -392,8 +392,8 @@ const biweeklyChecks = [
         frequency: WEEKLY,
         name: 'paycheck',
         amount: 1671.25,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: FRIDAY,
         sortPriority: 50,
         modulus: 2,
@@ -414,8 +414,8 @@ const annualBills = [
         frequency: ANNUALLY,
         name: 'Vehicle Registration',
         amount: -55.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '09-01',
         sortPriority: 10
     },
@@ -424,8 +424,8 @@ const annualBills = [
         frequency: ANNUALLY,
         name: 'New Years Blast',
         amount: -50.0,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         processDate: '12-31',
         sortPriority: 200
     }
@@ -437,8 +437,8 @@ const weekDayBills = [
         frequency: DAILY,
         name: 'work cafeteria allowance',
         amount: -7.5,
-        dateStart: '2019-07-20',
-        dateEnd: null,
+        effectiveDateStart: '2019-07-20',
+        effectiveDateEnd: null,
         sortPriority: 80,
         exclusions: {
             // exclude these dates/days
