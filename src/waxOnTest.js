@@ -88,8 +88,8 @@ const CORPORATE_HOLIDAYS = [
 ]; // corporate holidays will need to be added for each projected year, in this case they extend to the end of 2021
 
 const danielSan = {
-    beginBalance: 2500.0, // see the readme for multi-currency options
-    endBalance: null,
+    balanceBeginning: 2500.0, // see the readme for multi-currency options
+    balanceEnding: null,
     effectiveDateStart: '2019-07-20',
     effectiveDateEnd: '2021-09-11',
     rules: [], // the rules defined below will be assigned to this array, prior to export, at the bottom of the file
