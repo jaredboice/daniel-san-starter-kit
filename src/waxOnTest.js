@@ -97,8 +97,8 @@ const danielSan = {
     events: [] // future balance projections stored here
 };
 
-const reportingOptions = {
-    name: 'Daniel-San Test Report',
+const reportingConfig = {
+    name: 'Daniel-San-Test-Report',
     type: STANDARD_OUTPUT,
     mode: CONCISE,
     criticalThreshold: 150.0
@@ -464,5 +464,5 @@ danielSan.rules = rules;
 
 module.exports = {
     danielSan,
-    reportingOptions
+    reportingConfig
 };

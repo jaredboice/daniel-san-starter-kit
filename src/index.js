@@ -28,7 +28,7 @@ const operationResult = findBalance(waxOn.danielSan);
 console.timeEnd('processing time'); // eslint-disable-line no-console
 createReport({
     danielSan: operationResult.danielSan,
-    reportingOptions: waxOn.reportingOptions,
+    reportingConfig: waxOn.reportingConfig,
     originalDanielSan: waxOn.danielSan,
     error: operationResult.err
 });
