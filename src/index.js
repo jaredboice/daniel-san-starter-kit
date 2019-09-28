@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const ENV = process.env.NODE_ENV;
 const findBalance = require('daniel-san');
-const terminal = require('daniel-san/terminal');
+const createReport = require('daniel-san/reporting');
 
 let waxOn;
 switch (ENV) {
@@ -26,9 +26,9 @@ console.log(`>>> environment: ${ENV}`); // eslint-disable-line no-console
 console.time('processing time'); // eslint-disable-line no-console
 const operationResult = findBalance(waxOn.danielSan);
 console.timeEnd('processing time'); // eslint-disable-line no-console
-terminal({
+createReport({
     danielSan: operationResult.danielSan,
-    terminalOptions: waxOn.terminalOptions,
+    reportingOptions: waxOn.reportingOptions,
     originalDanielSan: waxOn.danielSan,
     error: operationResult.err
 });

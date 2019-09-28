@@ -10,7 +10,7 @@ const {
     FRIDAY,
     SATURDAY,
     WEEKENDS,
-    STANDARD_TERMINAL_OUTPUT,
+    STANDARD_OUTPUT,
     CONCISE
 } = require('daniel-san/constants'); // see the readme for more constants
 
@@ -97,11 +97,11 @@ const danielSan = {
     events: [] // future balance projections stored here
 };
 
-const terminalOptions = {
-    type: STANDARD_TERMINAL_OUTPUT,
+const reportingOptions = {
+    type: STANDARD_OUTPUT,
     mode: CONCISE,
     criticalThreshold: 150.0
-}; // see the readme for more terminal options
+}; // see the readme for more report options
 
 const monthlyEssentials = [
     {
@@ -463,5 +463,5 @@ danielSan.rules = rules;
 
 module.exports = {
     danielSan,
-    terminalOptions
+    reportingOptions
 };

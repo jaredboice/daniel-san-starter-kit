@@ -1,5 +1,5 @@
 # daniel-san-starter-kit
-a budget-projection rule template for cashflow event triggers that utilizes the daniel-san budget-projection engine with terminal output.
+a budget-projection rule template for cashflow event triggers that utilizes the daniel-san budget-projection engine with reports via terminal or text-file output.
 
 get the [full documentation](https://github.com/jaredboice/daniel-san) at gitHub.
 

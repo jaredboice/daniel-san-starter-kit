@@ -6,6 +6,9 @@ logs
 *.log
 npm-debug.log*
 
+# reports
+*.txt
+
 # Output of 'npm pack'
 *.tgz
 build/
