@@ -98,6 +98,7 @@ const danielSan = {
 };
 
 const reportingOptions = {
+    name: 'Daniel-San Report',
     type: STANDARD_OUTPUT,
     mode: CONCISE,
     criticalThreshold: 150.0
