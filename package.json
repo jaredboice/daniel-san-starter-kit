@@ -47,7 +47,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.4.5",
-        "daniel-san": "^11.0.9",
+        "daniel-san": "^11.0.10",
         "dotenv": "^8.0.0",
         "moment": "^2.23.0"
     },
