@@ -24,13 +24,13 @@ default:
 console.time('processing + output time'); // eslint-disable-line no-console
 console.log(`>>> environment: ${ENV}`); // eslint-disable-line no-console
 console.time('processing time'); // eslint-disable-line no-console
-const operationResult = findBalance(waxOn.danielSan);
+const craneKick = findBalance(waxOn.danielSan);
 console.timeEnd('processing time'); // eslint-disable-line no-console
 createReport({
-    danielSan: operationResult.danielSan,
-    reportingConfig: waxOn.reportingConfig,
+    danielSan: craneKick.danielSan,
+    controller: waxOn.reportController,
     originalDanielSan: waxOn.danielSan,
-    error: operationResult.err
+    error: craneKick.err
 });
 console.timeEnd('processing + output time'); // eslint-disable-line no-console
 console.log(`>>> environment: ${ENV}`); // eslint-disable-line no-console
