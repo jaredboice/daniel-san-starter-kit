@@ -215,10 +215,87 @@ const reportController = {
         mode: CONCISE
     },
     rules: [
+        { name: 'revenue', type: SUM_OF_ALL_POSITIVE_EVENT_FLOWS },
+        { name: 'expenses', type: SUM_OF_ALL_NEGATIVE_EVENT_FLOWS },
         {
             name: 'standard events',
             type: STANDARD_OUTPUT,
             criticalThreshold: 150.0
+        },
+        {
+            type: LEAST_BALANCE_ENDING_SNAPSHOTS,
+            selectionLimit: 21
+        },
+        {
+            type: AGGREGATES,
+            aggregateRules: [
+                {
+                    name: 'average weekly balance',
+                    type: SUMS_AND_AVERAGES,
+                    frequency: WEEKLY,
+                    sortKey: 'average',
+                    sortDirection: DESCENDING,
+                    selectionLimit: 7
+                },
+                {
+                    name: 'average monthly balance',
+                    type: SUMS_AND_AVERAGES,
+                    frequency: MONTHLY,
+                    sortKey: 'average',
+                    sortDirection: DESCENDING,
+                    selectionLimit: 7
+                },
+                {
+                    name: 'average annual balance',
+                    type: SUMS_AND_AVERAGES,
+                    frequency: ANNUALLY,
+                    sortKey: 'average',
+                    sortDirection: DESCENDING,
+                    selectionLimit: 7
+                },
+                {
+                    name: 'least monthly values',
+                    type: LEAST_VALUES,
+                    frequency: MONTHLY,
+                    selectionLimit: 7
+                },
+                {
+                    name: 'least annual values',
+                    type: LEAST_VALUES,
+                    frequency: ANNUALLY,
+                    selectionLimit: 7
+                },
+                {
+                    name: 'least monthly medians and modes',
+                    type: MEDIANS_AND_MODES,
+                    frequency: MONTHLY,
+                    xPercentRange: 0.2,
+                    sortKey: 'modes',
+                    sortDirection: ASCENDING,
+                    selectionLimit: 7
+                },
+                {
+                    name: 'greatest monthly medians and modes',
+                    type: MEDIANS_AND_MODES,
+                    frequency: MONTHLY,
+                    xPercentRange: 0.2,
+                    sortKey: 'modes',
+                    sortDirection: DESCENDING,
+                    selectionLimit: 7
+                },
+                {
+                    name: 'greatest expense days',
+                    type: SUMS_AND_AVERAGES,
+                    frequency: DAY_CYCLES,
+                    propertyKey: 'amount',
+                    dayCycles: 1,
+                    sortKey: 'sum',
+                    sortDirection: DESCENDING,
+                    flowDirection: NEGATIVE,
+                    flowKey: 'amount',
+                    selectionLimit: 7
+                }
+            ]
         }
     ]
 }; // see the readme for more report options
