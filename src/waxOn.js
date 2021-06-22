@@ -440,7 +440,7 @@ const monthlyEssentials = [
                 amounts: [49.0] // dates and amounts are parallel arrays
             },
             {
-                type: PRE_PAY, // the moving of process dates should generally come last in the array of adjustments
+                type: PRE_PAY, // be careful when combining specialAdjustments; confirm that you are getting expected results
                 dates: [...BANK_HOLIDAYS],
                 weekdays: [...WEEKENDS]
             }
