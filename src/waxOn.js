@@ -225,7 +225,9 @@ const reportController = {
         {
             type: LEAST_BALANCE_ENDING_SNAPSHOTS,
             selectionLimit: 21,
-            uniqueKey: 'dateStart' // ensures one least balance per date
+            uniqueKey: 'dateStart', // ensures only one Unique least balance result per date
+            // sortKey: 'balanceEnding', // sort by any key you like
+            // sortDirection: ASCENDING
         },
         {
             type: AGGREGATES,
