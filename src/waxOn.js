@@ -65,6 +65,8 @@ const {
     DISCARDED_EVENTS,
     IMPORTANT_EVENTS,
     TIME_EVENTS,
+    ROUTINE,
+    REMINDER,
     ROUTINE_EVENTS,
     REMINDER_EVENTS,
     ROUTINE_AND_REMINDER_EVENTS,
@@ -225,7 +227,7 @@ const reportController = {
         {
             type: LEAST_BALANCE_ENDING_SNAPSHOTS,
             selectionLimit: 21,
-            uniqueKey: 'dateStart', // ensures only one Unique least balance result per date
+            uniqueKey: 'dateStart', // ensures only one Unique "least balance" result per event dateStart
             // sortKey: 'balanceEnding', // sort by any key you like
             // sortDirection: ASCENDING
         },
