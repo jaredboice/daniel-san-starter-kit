@@ -49,7 +49,7 @@
         "@babel/runtime": "^7.4.5",
         "daniel-san": "^13.4.35",
         "dotenv": "^8.0.0",
-        "moment": "^2.23.0"
+        "moment": "^2.29.2"
     },
     "devDependencies": {
         "@babel/cli": "^7.4.4",
